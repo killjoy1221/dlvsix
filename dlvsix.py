@@ -138,7 +138,7 @@ class SafeThreadPoolExecutor(ThreadPoolExecutor):
         if exc_info[0]:
             if isinstance(exc_info[1], KeyboardInterrupt):
                 log.critical("Caught KeyboardInterrupt, shutting down")
-            else:
+            elif not isinstance(exc_info[1], AppError):
                 log.critical("Caught exception, shutting down", exc_info=exc_info)
             self.shutdown(wait=False, cancel_futures=True)
 
