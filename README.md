@@ -11,12 +11,26 @@ The following requirements are needed on the online host.
 
 - [Python 3.9+](https://www.python.org/downloads)
 - [VS Code](https://code.visualstudio.org) (derivatives are untested).
+- [UV](https://docs.astral.sh/uv) or [PIPX](https://pipx.pypa.io/stable/) (recommended)
 
 No additional dependencies are required on the offline host. (only bash, tar, sed, and grep are used for automated installs)
 
 ## Usage
 
-On the online host, run `python3 ./dlvsix.py` with no arguments from a bash session to start the download. All downloaded files will be in the `vscode-extensions/` directory.
+On the online host, run with either `uv` or `pipx` with no arguments from a bash session to start the download. All downloaded files will be in the `vscode-extensions/` directory.
+
+```sh
+uv run ./dlvsix.py
+# or
+pipx run ./dlvsix.py
+```
+
+To run without `uv` or `pipx`, install the `rich` and `rich-argparse` packages to your environment before running.
+
+```sh
+python3 -m pip install rich rich-argparse
+python3 ./dlvsix.py
+```
 
 Additionally, the folder will be archived to `vscode-extensions.zip` as a convenience. This file should be transfered to the offline host using any method available.
 
