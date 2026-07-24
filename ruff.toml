@@ -31,3 +31,5 @@ select = [
 ignore = [
     "ANN401", # any-type
 ]
+[lint.per-file-ignores]
+"resources/*" = ["EXE001"]
